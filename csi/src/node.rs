@@ -455,7 +455,7 @@ impl node_server::Node for Node {
                 "iscsi" => {
                     match iscsi_attach_disk(uri) {
                         Ok(devpath) => devpath,
-                        Err(e) => return Err(Status::new(Code::Internal, e)),
+                        Err(e) => return Err(Status::new(Code::NotFound, e)),
                     }
                     // The nexus may reside on another node,
                     // currently there is no way to retrieve the nexus details
